@@ -1,0 +1,35 @@
+<html>
+  <head>
+  </head>
+  <body>
+    <p>Message: <span id="message"></span></p>
+    <p>Session CSRF Token: <span id="session_csrf"></span></p>
+    <p>Cookie CSRF Token: <span id="cookie_csrf"></span></p>
+    <div>
+      <button onclick="submitForm()">Get CSRF Token</button>
+    </div>
+    <script>
+      async function submitForm() {
+        const csrf_token = await fetch("https://pc.theitfox.com/get_csrf_token", {
+          method: 'GET',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+        })
+          .then(response => response.json())
+          .then(data => data.csrf_token);
+
+        const data = await fetch('https://pc.theitfox.com/secrets', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'X-CSRF-Token': csrf_token
+          },
+        }).then(response => response.json())
+        document.getElementById('message').innerText = data.detail;
+        document.getElementById('session_csrf').innerText = data["session_csrf_token"];
+        document.getElementById('cookie_csrf').innerText = data["cookies_csrf_token"];
+      }
+    </script>
+  </body>
+</html>

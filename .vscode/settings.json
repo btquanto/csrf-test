@@ -1,0 +1,88 @@
+{
+    "diffEditor.wordWrap": "off",
+    "editor.minimap.maxColumn": 120,
+    "editor.accessibilitySupport": "off",
+    "editor.wordWrapColumn": 168,
+    "editor.tabSize": 4,
+    "editor.detectIndentation": true,
+    "editor.defaultFormatter": null,
+    "editor.rulers": [120],
+    "terminal.integrated.defaultProfile.linux": "bash",
+    "files.eol": "\n",
+    "files.exclude": {
+      "**/__pycache__": true,
+      "**/.cache": true,
+      "**/.venv": true,
+      "**/node_modules": true
+    },
+    "files.associations": {
+      "**/templates/*.html": "django-html"
+    },
+    "[json]": {
+      "editor.defaultFormatter": "esbenp.prettier-vscode",
+      "editor.tabSize": 2,
+      "editor.insertSpaces": true
+    },
+    "[jsonc]": {
+      "editor.defaultFormatter": "esbenp.prettier-vscode",
+      "editor.tabSize": 2,
+      "editor.insertSpaces": true
+    },
+    "[javascript]": {
+      "editor.defaultFormatter": "vscode.typescript-language-features",
+      "editor.tabSize": 2,
+      "editor.insertSpaces": true
+    },
+    "[html]": {
+      "editor.defaultFormatter": "esbenp.prettier-vscode",
+      "editor.tabSize": 2,
+      "editor.insertSpaces": true
+    },
+    "html.validate.scripts": false,
+    "html.format.wrapAttributes": "preserve-aligned",
+    "html.format.wrapLineLength": 168,
+    "[django-html]": {
+      "editor.defaultFormatter": "vscode.html-language-features",
+      "editor.tabSize": 2,
+      "editor.insertSpaces": true,
+      "editor.codeActionsOnSave": {
+        "editor.formatOnSave": true
+      }
+    },
+    "[python]": {
+      "editor.tabSize": 4,
+      "editor.insertSpaces": true,
+      "files.eol": "\n",
+      "editor.formatOnSave": false,
+      "editor.codeActionsOnSave": {
+        "source.organizeImports": true,
+        "source.fixAll": false,
+      },
+      "editor.defaultFormatter": "charliermarsh.ruff"
+    },
+    "python.languageServer": "Pylance",
+    "python.terminal.activateEnvInCurrentTerminal": true,
+    "python.analysis.logLevel": "Warning",
+    "python.analysis.typeCheckingMode": "off",
+    "python.analysis.useLibraryCodeForTypes": true,
+    "python.analysis.autoImportCompletions": true,
+    "pylint.importStrategy": "fromEnvironment",
+    "pylint.path": [
+      "pylint"
+    ],
+    "pylint.args": [
+      "--load-plugins=pylint_django",
+      "--load-plugins=pylint_django.checkers.migrations",
+      "--django-settings-module=config.settings"
+    ],
+    "explorer.fileNesting.enabled": true,
+    "explorer.fileNesting.patterns": {
+      "_environment": ".environment, .environment.local, .environment.dev, .environment.prod",
+      "_mysql": ".mysql, .mysql.local, .mysql.dev, .mysql.prod",
+      ".pylintrc": ".flake8"
+    },
+    "pylint.interpreter": [
+      "python3"
+    ]
+  }
+  
