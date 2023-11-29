@@ -15,9 +15,6 @@
       "**/.venv": true,
       "**/node_modules": true
     },
-    "files.associations": {
-      "**/templates/*.html": "django-html"
-    },
     "[json]": {
       "editor.defaultFormatter": "esbenp.prettier-vscode",
       "editor.tabSize": 2,
@@ -41,14 +38,6 @@
     "html.validate.scripts": false,
     "html.format.wrapAttributes": "preserve-aligned",
     "html.format.wrapLineLength": 168,
-    "[django-html]": {
-      "editor.defaultFormatter": "vscode.html-language-features",
-      "editor.tabSize": 2,
-      "editor.insertSpaces": true,
-      "editor.codeActionsOnSave": {
-        "editor.formatOnSave": true
-      }
-    },
     "[python]": {
       "editor.tabSize": 4,
       "editor.insertSpaces": true,

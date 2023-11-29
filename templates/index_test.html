@@ -3,32 +3,27 @@
   </head>
   <body>
     <p>Message: <span id="message"></span></p>
+    <p>Session CSRF Token: <span id="session_csrf"></span></p>
+    <p>Cookie CSRF Token: <span id="cookie_csrf"></span></p>
     <div>
       <button onclick="submitForm()">Get CSRF Token</button>
     </div>
     <script>
-      function getCookie(cname) {
-        let name = cname + "=";
-        let decodedCookie = decodeURIComponent(document.cookie);
-        let ca = decodedCookie.split(';');
-        for (let i = 0; i < ca.length; i++) {
-          let c = ca[i];
-          while (c.charAt(0) == ' ') {
-            c = c.substring(1);
-          }
-          if (c.indexOf(name) == 0) {
-            return c.substring(name.length, c.length);
-          }
-        }
-        return "";
-      }
-
       async function submitForm() {
+        const csrf_token = await fetch("/get_csrf_token", {
+          method: 'GET',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+        })
+          .then(response => response.json())
+          .then(data => data.csrf_token);
+
         const data = await fetch('/secrets', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
-            'X-CSRF-Token': getCookie("csrf_token")
+            'X-CSRF-Token': csrf_token
           },
         }).then(response => response.json())
         document.getElementById('message').innerText = data.detail;

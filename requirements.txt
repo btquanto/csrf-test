@@ -2,3 +2,4 @@ fastapi
 itsdangerous
 jinja2
 uvicorn
+starlette-csrf
